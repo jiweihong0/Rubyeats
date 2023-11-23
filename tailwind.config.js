@@ -17,6 +17,8 @@ export default {
         grayforget:"#B6B6B6",
         pinktext:'#F46892',
         pinkbg:'#FBD6DD',
+        greenbg: '#D4E0DE',
+        greentext: '#86D4C6',
         
 
       },
