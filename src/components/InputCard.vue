@@ -14,22 +14,29 @@
             </div>
             <span class="text-grayforget">忘記密碼?</span>
         </div>
-        <button class=" rounded-full bg-orangetext text-white text-2xl font-black mt-14 w-56 h-14">登入</button>
+        <button :class="handlebnstyle">登入</button>
         <div class="flex absolute bottom-12">
             <span class="mr-2">還沒有帳號嗎?</span>
-            <a href="/signin" class="text-orangetext">註冊</a>
+            <a href="/signin" :class="handletextstyle">註冊</a>
         </div> 
     </div>
 </template>
 <script setup>
     import { ref } from 'vue'
     import eye from '../assets/eye.png'
+    const props = defineProps({
+        who: String
+    })
+
     const email = ref('')
     const password = ref('')
     const visible = ref("password")
     const handlevisible = () => {
         visible.value = visible.value === "password" ? "text" : "password"
     }
+    
+    const handlebnstyle = props.who === "admin" ? "bg-orangetext text-white text-2xl w-80 h-12 p-1 mt-10 rounded-3xl" : "bg-pinktext text-white text-2xl w-80 h-12 p-1 mt-10 rounded-3xl"
+    const handletextstyle = props.who === "admin" ? "text-orangetext" : "text-pinktext"
 
-
+    
 </script>

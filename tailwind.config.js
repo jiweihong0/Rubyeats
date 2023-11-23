@@ -14,7 +14,9 @@ export default {
         dark: '#353535',
         orangebg: '#FBE8D6',
         orangetext: '#F49A68',
-        grayforget:"#B6B6B6"
+        grayforget:"#B6B6B6",
+        pinktext:'#F46892',
+        pinkbg:'#FBD6DD',
         
 
       },
