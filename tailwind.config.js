@@ -19,6 +19,7 @@ export default {
         pinkbg:'#FBD6DD',
         greenbg: '#D4E0DE',
         greentext: '#86D4C6',
+        graybg: "#D9D9D9"
         
 
       },
