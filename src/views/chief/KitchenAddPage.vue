@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ref, computed } from 'vue'
 import ChiefHeader from '../../components/ChiefHeader.vue'
 
 // showImage 
@@ -19,7 +20,7 @@ const textcontent = ref('');
 const textaddress = ref('');
 console.log(texttitle.value);
 
-import { ref, computed } from 'vue'
+
 
 type IWeekdayBussiness = {
     weekday: number
@@ -111,10 +112,10 @@ const convertNumberToWeekday = (num: number): string => {
 
 </script>
 <template>
-    <div class=" w-screen h-full  flex  items-center flex-col">
-        <div class=" max-w-3xl w-full">
+    <div class="flex flex-col items-center w-screen h-full ">
+        <div class="w-full max-w-3xl ">
             <ChiefHeader />
-            <div class=" flex justify-items-start w-full ml-10">
+            <div class="flex w-full ml-10 justify-items-start">
                 <h2>餐廳設定</h2>
             </div>
             <div>
@@ -135,25 +136,26 @@ const convertNumberToWeekday = (num: number): string => {
                 <a-input type="text" v-model="textaddress" allow-clear />
             </div>
             <label>餐廳營業時段</label>
-            <div class="flex items-center flex-col">
+            <div class="flex flex-col items-center">
                 <div class="flex flex-row">
 
-                    <button class="weekday-btn" v-for="(item, index) in new Array(7)"
+                    <button class="weekday-btn" v-for="(_, index) in new Array(7)"
                         :class="{ active: currentSelectedWeekdayNumber === index }"
                         @click="() => handleWeekdayButtonOnClick(index)">
                         {{ convertNumberToWeekday(index) }}
                     </button>
                 </div>
-                <div>
+                
+                <div v-if="currentSelectedWeekdayData !== undefined">
                     <input type="time" v-model="currentSelectedWeekdayData.bussinessStartTime">
                     -
                     <input type="time" v-model="currentSelectedWeekdayData.bussinessEndTime">
+                    <input type="checkbox" v-model="currentSelectedWeekdayData.isOnBussiness">
                 </div>
-                <input type="checkbox" v-model="currentSelectedWeekdayData.isOnBussiness">
                 
                 <label>營業</label>
             </div>
-            <div class="flex justify-end flex-row gap-5">
+            <div class="flex flex-row justify-end gap-5">
 
                 <a-button type="primary" ghost>儲存</a-button>
                 <a-button type="primary" danger ghost>回復預設</a-button>

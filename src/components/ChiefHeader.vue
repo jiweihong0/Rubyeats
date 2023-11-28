@@ -1,9 +1,6 @@
-<script>
-
-</script>
 <template>
-    <header class=" w-full h-20 flex justify-between items-center  bg-graybg ">
-        <div class="ml-5 bg-gray-700 h-10 w-20 ">
+    <header class="flex items-center justify-between w-full h-20  bg-graybg">
+        <div class="w-20 h-10 ml-5 bg-gray-700 ">
             <a href="/main">
                 <img src="" alt="Icon">
             </a>
