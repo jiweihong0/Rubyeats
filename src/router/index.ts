@@ -3,7 +3,7 @@ import LoginPage from "../views/auth/LoginPage.vue";
 import UserloginPage from "../views/auth/UserloginPage.vue";
 import SigninPage from "../views/auth/SigninPage.vue";
 import MainPage from "../views/MainPage.vue";
-import KitchenAddPage from "../views/chief/KitchenAddPage.vue";
+import RestaurantEditPageVue from "../views/chief/RestaurantEditPage.vue";
 
 const routes = [
     {
@@ -27,9 +27,9 @@ const routes = [
         component: UserloginPage,
     },
     {
-        path: "/KitchenAddPage",
-        name: "KitchenAddPage",
-        component: KitchenAddPage,
+        path: "/vendor/restaurant/edit/:id",
+        name: "VendorRestaurantEdit",
+        component: RestaurantEditPageVue,
 
     }
 ];
