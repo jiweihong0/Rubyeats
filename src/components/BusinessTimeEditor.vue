@@ -40,26 +40,20 @@ const convertNumberToWeekday = (num: number): string => {
   <label>餐廳營業時段</label>
   <div>
     <button
-    class="weekday-btn"
+    class="w-10 h-10 border border-gray-500"
+    :class="{ 'bg-gray-200': currentSelectedWeekdayNumber === index }"
     v-for="(_, index) in new Array(7)"
-    :class="{active: currentSelectedWeekdayNumber === index}"
     @click="() => handleWeekdayButtonOnClick(index)"
     >
       {{convertNumberToWeekday(index)}}
     </button>
-    <div>
-      <input type="time" v-model="currentSelectedWeekdayData!.bussinessStartTime">
+    <div class="mt-4">
+      <input class="px-2 py-1 bg-gray-200" type="time" v-model="currentSelectedWeekdayData!.bussinessStartTime">
       -
-      <input type="time" v-model="currentSelectedWeekdayData!.bussinessEndTime">
+      <input class="px-2 py-1 bg-gray-200" type="time" v-model="currentSelectedWeekdayData!.bussinessEndTime">
     </div>
 
     <input type="checkbox" v-model="currentSelectedWeekdayData!.isOnBussiness">
     <span>今日不營業</span>
   </div>
 </template>
-
-<style>
-  button.weekday-btn.active {
-    background-color: #ff0ff0;
-  }
-</style>
