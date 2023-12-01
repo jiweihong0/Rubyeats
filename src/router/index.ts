@@ -4,6 +4,7 @@ import UserloginPage from "../views/auth/UserloginPage.vue";
 import SigninPage from "../views/auth/SigninPage.vue";
 import MainPage from "../views/MainPage.vue";
 import RestaurantEditPageVue from "../views/chief/RestaurantEditPage.vue";
+import MealsPage from "../views/chief/MealsEditPage.vue";
 
 const routes = [
     {
@@ -31,6 +32,12 @@ const routes = [
         name: "VendorRestaurantEdit",
         component: RestaurantEditPageVue,
 
+    },
+    {
+        path: "/meals",
+        name: "Meals",
+        component: MealsPage,
+        
     }
 ];
 

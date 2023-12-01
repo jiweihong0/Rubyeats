@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-greenbg h-screen flex justify-center">
+    <div class="flex justify-center h-screen bg-greenbg">
         <SigninInputCard class="w-2/5" :who="who"/>
     </div>
    

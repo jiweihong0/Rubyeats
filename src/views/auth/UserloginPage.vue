@@ -6,11 +6,11 @@ const who = "user"
 
 </script>
 <template>
-    <div class="bg-pinkbg h-screen flex flex-row">
-        <div class="w-1/2 flex flex-col items-center justify-center">
+    <div class="flex flex-row h-screen bg-pinkbg">
+        <div class="flex flex-col items-center justify-center w-1/2">
 
             <img :src="customer"  alt="Vite logo" class="min-h-fit" />
-            <p class="rounded-full bg-pinktext text-white text-2xl w-52 h-12 p-1 absolute bottom-6 left-10 pl-14 pt-2">顧客登入</p>
+            <p class="absolute h-12 p-1 pt-2 text-2xl text-white rounded-full bg-pinktext w-52 bottom-6 left-10 pl-14">顧客登入</p>
         </div>
         <LoginInputCard class="w-1/2" :who="who"/>
     </div>

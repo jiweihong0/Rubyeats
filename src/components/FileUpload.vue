@@ -39,6 +39,10 @@ const handleChange = (info: UploadChangeParam) => {
     return;
   } else {
     // Get this url from response in real world.
+    
+    // Save this to provider 
+    console.log(info.file.originFileObj);
+    
     getBase64(info.file.originFileObj!, (base64Url: string) => {
       data.restaurant_image = base64Url;
       loading.value = false;
