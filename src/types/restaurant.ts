@@ -6,9 +6,9 @@ export type IBussinessHour = {
 }
 
 export type IRestaurant = {
-    restaurant_image: string;
-    restaurant_name: string;
-    restaurant_description: string;
-    restaurant_address: string;
-    restaurant_business_hours: IBussinessHour[];
+  restaurant_image: string;
+  restaurant_name: string;
+  restaurant_description: string;
+  restaurant_address: string;
+  restaurant_business_hours: IBussinessHour[];
 }
