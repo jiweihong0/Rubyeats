@@ -5,6 +5,7 @@ import SigninPage from "../views/auth/SigninPage.vue";
 import MainPage from "../views/MainPage.vue";
 import RestaurantEditPageVue from "../views/chief/RestaurantEditPage.vue";
 import MealsPage from "../views/chief/MealsEditPage.vue";
+import RestaurantsPage from "../views/restaurants/index.vue";
 
 const routes = [
     {
@@ -31,14 +32,24 @@ const routes = [
         path: "/vendor/restaurant/edit/:id",
         name: "VendorRestaurantEdit",
         component: RestaurantEditPageVue,
-
     },
     {
         path: "/meals",
         name: "Meals",
         component: MealsPage,
-        
-    }
+  },
+  {
+    path: "/restaurnts",
+    name: "RetaurantsRouter",
+    redirect: "/restaurants",
+    children: [
+      {
+        path: "/restaurants",
+        name: "Restaurants",
+        component: RestaurantsPage,
+      },
+    ],
+  }
 ];
 
 const router = createRouter({
