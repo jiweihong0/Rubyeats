@@ -29,6 +29,7 @@ declare module 'vue' {
     Restaurant: typeof import('./src/components/card/restaurant.vue')['default']
     RestaurantAndMealCard: typeof import('./src/components/card/restaurantAndMealCard.vue')['default']
     RestaurantEditForm: typeof import('./src/components/form/RestaurantEditForm.vue')['default']
+    RestaurantGrid: typeof import('./src/components/list/restaurantGrid.vue')['default']
     RestaurantList: typeof import('./src/components/list/restaurantList.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']

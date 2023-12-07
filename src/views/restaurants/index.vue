@@ -3,13 +3,18 @@
         <div class="w-1/3">
           <a-input placeholder="餐廳名稱" />
         </div>
-        <RestaurantList title="推薦專區" :restaurants="restaurants" />
+        <div class="flex flex-col gap-y-4">
+          <RestaurantList title="推薦專區" :restaurants="restaurants" />
+          <RestaurantList title="附近的餐廳" :restaurants="restaurants" />
+          <RestaurantGrid title="所有餐廳" :restaurants="restaurants" />
+        </div>
     </Layout>
 </template>
 
 <script lang="ts" setup>
 import Layout from "../../layouts/index.vue";
 import RestaurantList from "../../components/list/restaurantList.vue";
+import RestaurantGrid from "../../components/list/restaurantGrid.vue";
 
 type Restaurant = InstanceType<typeof RestaurantList>["restaurants"][0];
 
