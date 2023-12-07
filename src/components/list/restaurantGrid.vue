@@ -13,6 +13,7 @@
           :sub-title="restaurant.price"
           :img="restaurant.img"
           :description="restaurant.description"
+          :redirect_url="`/restaurants/${restaurant.id}`"
         />
       </div>
     </div>

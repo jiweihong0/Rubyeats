@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col border rounded-lg">
+  <a :href="redirect_url" class="flex flex-col border rounded-lg cursor-pointer">
     <img class="aspect-[4/3] min-w-[200px] object-fill rounded-t-lg" :src="$props.img" />
     <div class="p-4">
       <div class="flex justify-between">
@@ -8,7 +8,7 @@
       </div>
       <p class="text-sm text-gray-200">{{ props.description }}</p> 
     </div>
-  </div>
+  </a>
 </template>
 
 <script lang="ts" setup>
@@ -18,6 +18,7 @@ const props = defineProps({
   img: String,
   title: String,
   subTitle: Number,
-  description: String
+  description: String,
+  redirect_url: String
 });
 </script>
