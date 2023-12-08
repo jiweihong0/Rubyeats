@@ -6,6 +6,7 @@ import MainPage from "../views/MainPage.vue";
 import RestaurantEditPageVue from "../views/chief/RestaurantEditPage.vue";
 import MealsPage from "../views/chief/MealsEditPage.vue";
 import RestaurantsPage from "../views/restaurants/index.vue";
+import OrderPage from "../views/chief/OrderPage.vue";
 
 const routes = [
     {
@@ -49,6 +50,12 @@ const routes = [
         component: RestaurantsPage,
       },
     ],
+  },
+  {
+    path: "/order",
+    name: "Order",
+    component: OrderPage,
+
   }
 ];
 

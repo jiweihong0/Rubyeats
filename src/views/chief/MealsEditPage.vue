@@ -15,14 +15,28 @@ const data = reactive([
         meals_options: [{
             name: "餐點選項1",
             options: [
-                ["選項1", 60],
-                ["選項2", 30]
+                {
+                    name: "選項1",
+                    price: 60
+                },
+                {
+                    name: "選項2",
+                    price: 30
+                }
+
             ]
         }, {
             name: "餐點選項2",
             options: [
-                ["選項1", 60],
-                ["選項2", 30]
+                {
+                    name: "選項1",
+                    price: 60
+                },
+                {
+                    name: "選項2",
+                    price: 30
+                }
+
             ]
         }]
     },
@@ -35,14 +49,26 @@ const data = reactive([
         meals_options: [{
             name: "餐點選項1",
             options: [
-                ["選項1", 60],
-                ["選項2", 30]
+                {
+                    name: "選項1",
+                    price: 60
+                },
+                {
+                    name: "選項2",
+                    price: 30
+                }
             ]
         }, {
             name: "餐點選項2",
             options: [
-                ["選項1", 60],
-                ["選項2", 30]
+                {
+                    name: "選項1",
+                    price: 60
+                },
+                {
+                    name: "選項2",
+                    price: 30
+                }
             ]
         }]
     }
@@ -66,14 +92,26 @@ const handlelist = () => {
         meals_options: [{
             name: "餐點選項1",
             options: [
-                ["選項1", 60],
-                ["選項2", 30]
+                {
+                    name: "選項1",
+                    price: 60
+                },
+                {
+                    name: "選項2",
+                    price: 30
+                }
             ]
         }, {
             name: "餐點選項2",
             options: [
-                ["選項1", 60],
-                ["選項2", 30]
+                {
+                    name: "選項1",
+                    price: 60
+                },
+                {
+                    name: "選項2",
+                    price: 30
+                }
             ]
         }]
     })
@@ -123,43 +161,16 @@ const closeModal = () => {
             </div>
             <!-- new card -->
             <button @click="handlelist" class="w-full mt-2 border-black h-36 border-3 bg-graybg rounded-3xl ">+</button>
-            <div v-if="isShowMealsEditForm" class="modal">
-                <div class="modal-content">
+           
+            <div v-if="isShowMealsEditForm"
+                class="fixed z-20 w-full h-full max-w-3xl overflow-auto border border-black border-solid top-1/4 l-1/4 rounded-3xl">
+                <div class="p-20 bg-white border rounded-3xl">
                     <MealsEditForm :mealsData="data[indexprops]" />
                 </div>
             </div>
-            <div class="modal-overlay" @click="closeModal" v-if="isShowMealsEditForm"></div>
 
         </div>
+        <div class="absolute z-10 w-screen h-screen bg-black opacity-50 t-0 l-0" @click="closeModal"
+                v-if="isShowMealsEditForm"></div>
     </div>
 </template>
-<style scoped>
-.modal-content {
-    background-color: white;
-    padding: 20px;
-    border-radius: 5px;
-
-}
-
-.modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 7;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-
-}
-
-.modal {
-    position: fixed;
-    top: 200px;
-    left: 576px;
-    z-index: 8;
-    width: 790px;
-    height: 100%;
-    overflow: auto;
-    border: 1px solid #ccc;
-}
-</style>

@@ -18,6 +18,7 @@ declare module 'vue' {
     LoginInputCard: typeof import('./src/components/LoginInputCard.vue')['default']
     MealsCard: typeof import('./src/components/MealsCard.vue')['default']
     MealsEditForm: typeof import('./src/components/form/MealsEditForm.vue')['default']
+    OrderCard: typeof import('./src/components/card/orderCard.vue')['default']
     RestaurantAndMealCard: typeof import('./src/components/card/restaurantAndMealCard.vue')['default']
     RestaurantEditForm: typeof import('./src/components/form/RestaurantEditForm.vue')['default']
     RestaurantGrid: typeof import('./src/components/list/restaurantGrid.vue')['default']
