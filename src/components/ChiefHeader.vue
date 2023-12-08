@@ -6,7 +6,7 @@
             </a>
         </div>
         <div class="mr-6">
-            <a href="/KitchenAddpage">
+            <a href="/vendor/restaurant/edit/1">
                 餐廳設定
             </a>
             <a href="/main">

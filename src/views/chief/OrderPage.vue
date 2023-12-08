@@ -3,16 +3,22 @@ import ChiefHeader from '../../components/ChiefHeader.vue'
 import OrderCard from '../../components/card/orderCard.vue';
 </script>
 <template>
-    <ChiefHeader/>
-    <div>
-        我的訂單
-    </div>
-    <div>
-        正在處理的訂單
-    </div>
-    <OrderCard/>
-    <div>
-
-        過往訂單
+    <div class="flex flex-col items-center w-screen h-ful">
+        <div class=" w-full max-w-3xl">
+            <ChiefHeader/>
+            <div>
+                我的訂單
+            </div>
+            <OrderCard/>
+            <div>
+                正在處理的訂單
+            </div>
+            <OrderCard/>
+            <div>
+                
+                過往訂單
+            </div>
+            <OrderCard/>
+        </div>
     </div>
 </template>
