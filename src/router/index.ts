@@ -7,6 +7,7 @@ import RestaurantEditPageVue from "../views/chief/RestaurantEditPage.vue";
 import MealsPage from "../views/chief/MealsEditPage.vue";
 import RestaurantsPage from "../views/restaurants/index.vue";
 import OrderPage from "../views/chief/OrderPage.vue";
+import ClientOrderPage from "../views/restaurants/ClientOrderPage.vue";
 
 const routes = [
     {
@@ -56,7 +57,14 @@ const routes = [
     name: "Order",
     component: OrderPage,
 
+  },
+  {
+    path: "/restaurants/:id",
+    name: "ClientOrder",
+    component: ClientOrderPage,
+
   }
+  
 ];
 
 const router = createRouter({
