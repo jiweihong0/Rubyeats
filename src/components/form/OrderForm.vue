@@ -49,7 +49,6 @@
 
 
 <script lang="ts" setup>
-import { Radio } from 'ant-design-vue';
 import { reactive } from 'vue';
 const dataex = reactive({
     meals_name: '餐點名稱',
