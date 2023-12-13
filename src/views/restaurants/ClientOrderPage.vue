@@ -10,6 +10,7 @@ const data = reactive([
         meals_price: 100,
         meals_hashtags: ['餐點標籤1', '餐點標籤2', '餐點標籤3'],
         meals_description: '好吃到蹦蹦跳的奶茶，基本上應該不超過50個字左右吧好吃到蹦蹦跳的奶茶，基本上應該不超過50個字左右吧好吃到蹦蹦跳的奶茶，基本上應該不超過50個字左右吧',
+        meals_image: 'https://picsum.photos/200/300?random=1',
         meals_options: [{
             name: "餐點選項1",
             options: [
@@ -43,6 +44,7 @@ const data = reactive([
         meals_address: '餐點地址',
         meals_price: 10,
         meals_hashtags: ['餐點標4', '餐點標籤5', '餐點標籤6'],
+        meals_image: 'https://picsum.photos/200/300?random=1',
         meals_description: '好吃到蹦蹦跳的奶茶，基本上應該不超過50個字左右吧好吃到蹦蹦跳的奶茶，基本上應該不超過50個字左右吧好吃到蹦蹦跳的奶茶，基本上應該不超過50個字左右吧',
         meals_options: [{
             name: "餐點選項1",
@@ -77,8 +79,6 @@ const handleShowMealsEditForm = (e: any, index: number) => {
     e.preventDefault();
     indexprops.value = index;
     isShowMealsEditForm.value = !isShowMealsEditForm.value;
-
-
 }
 const closeModal = () => {
     isShowMealsEditForm.value = false;
@@ -87,7 +87,7 @@ const closeModal = () => {
 </script>
 <template>
     <div class="flex flex-col items-center w-screen h-full ">
-        <div class="w-full max-w-3xl">
+        <div class="w-full h-full max-w-3xl">
             <ClientHeader />
             <div class="flex justify-between w-full pt-10 pl-5 pr-10 justify-items-start">
                 <h2 class="ml-10 text-4xl">睡相茶弄</h2>
@@ -126,26 +126,23 @@ const closeModal = () => {
                     @click="e => handleShowMealsEditForm(e, index)" />
             </div>
             <div v-if="isShowMealsEditForm"
-                class="fixed z-20 w-full h-full max-w-3xl overflow-auto border border-black border-solid top-1/4 l-1/4 rounded-3xl">
-                <div class="p-20 bg-white border rounded-3xl">
-                    <OrderForm :mealsData="data[indexprops]" />
-                </div>
+                class="fixed z-20 w-full h-full max-w-3xl overflow-scroll bg-white top-10 rounded-3xl">
+                <OrderForm :mealsData="data[indexprops]" />
             </div>
             
-            <footer class="flex items-center justify-center w-full h-30 bg-graybg">
-                <div class="flex flex-row justify-between w-4/5 m-3 bg-white h-4/5 rounded-xl">
+            <footer class="flex items-center justify-center w-full h-16 bg-graybg ">
+                <div class="flex flex-row items-center justify-between w-4/5 p-5 m-2 bg-white h-4/5 rounded-xl">
                     <div class="inline-flex ">
                         <img src="../../assets/cart.png" alt="img">
                         <p>1</p>
                     </div>
-                    <p>查看購物車</p>
+                    <button>查看購物車</button>
                     <p>$60</p>
                 </div>
             </footer>
 
         </div>
-        <div class="absolute z-10 w-screen h-screen bg-black opacity-50 t-0 l-0" @click="closeModal"
-                v-if="isShowMealsEditForm"></div>
-
+        <div class="fixed top-0 left-0 z-10 w-full h-full bg-black opacity-50" @click="closeModal"
+     v-if="isShowMealsEditForm"></div>
     </div>
 </template>
