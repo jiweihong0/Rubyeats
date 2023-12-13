@@ -124,7 +124,9 @@ export function useSetCartProvider() {
 
 export default function useGetCartProvider() {
 
-  const data = inject<ResaurantMeals[]>(key);
+  const data = inject<{
+    data: ResaurantMeals[]
+  }>(key);
 
   if (data === undefined) {
     throw new Error("useGetCartProvider() is called without provider.");
