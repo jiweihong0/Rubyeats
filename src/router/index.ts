@@ -7,7 +7,8 @@ import RestaurantEditPageVue from "../views/chief/RestaurantEditPage.vue";
 import MealsPage from "../views/chief/MealsEditPage.vue";
 import RestaurantsPage from "../views/restaurants/index.vue";
 import OrderPage from "../views/chief/OrderPage.vue";
-import ClientOrderPage from "../views/restaurants/ClientOrderPage.vue";
+import MealOrderPage from "../views/restaurants/MealOrderPage.vue";
+import ClientOrdersPage from "../views/restaurants/ClientOrdersPage.vue";
 
 const routes = [
     {
@@ -60,10 +61,16 @@ const routes = [
   },
   {
     path: "/restaurants/:id",
-    name: "ClientOrder",
-    component: ClientOrderPage,
+    name: "MealOrder",
+    component: MealOrderPage,
 
-  }
+  },
+  {
+    path: "/client/order",
+    name: "ClientOrder",
+    component: ClientOrdersPage,
+
+  },
   
 ];
 
