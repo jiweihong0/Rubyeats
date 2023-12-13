@@ -17,6 +17,7 @@ declare module 'vue' {
     ClientHeader: typeof import('./src/components/ClientHeader.vue')['default']
     FileUpload: typeof import('./src/components/FileUpload.vue')['default']
     LoginInputCard: typeof import('./src/components/LoginInputCard.vue')['default']
+    MealInOrderCard: typeof import('./src/components/card/MealInOrderCard.vue')['default']
     MealsCard: typeof import('./src/components/MealsCard.vue')['default']
     MealsEditForm: typeof import('./src/components/form/MealsEditForm.vue')['default']
     OrderCard: typeof import('./src/components/card/orderCard.vue')['default']
