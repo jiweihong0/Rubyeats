@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import { defineProps } from "vue";
 import useGetCartProvider from "../../provider/useCartProvider";
+
 type Meal = ReturnType<typeof useGetCartProvider>['data'][0]['meals'][0];
 
 type Props = {
@@ -29,6 +30,12 @@ const getTotalPrice = () => {
   }, 0);
 };
 
+const { methods } = useGetCartProvider();
+
+const handleUpdateMealCount = (meal: Meal, count: number) => {
+  methods.setMealCount(meal.mealId, count);
+};
+
 </script>
 
 <template>
@@ -52,13 +59,19 @@ const getTotalPrice = () => {
     </div>
     <div class="flex items-center justify-between">
       <div class="flex items-center">
-        <button class="px-4 bg-gray-400">
-          <span class="m-auto text-lg">-</span>
+        <button 
+          class="px-4 bg-gray-400" 
+          :class="{ 'bg-red-400': props.meal.count === 1 }"
+          @click="() => handleUpdateMealCount(meal, -1)"
+        >
+          <span class="m-auto text-lg">
+            -
+          </span>
         </button>
         <span class="px-4 text-lg bg-gray-400">
           {{ props.meal.count }}
         </span>
-        <button class="px-4 bg-gray-400">
+        <button class="px-4 bg-gray-400" @click="() => handleUpdateMealCount(meal, 1)">
           <span class="m-auto text-lg">+</span>
         </button>
       </div>

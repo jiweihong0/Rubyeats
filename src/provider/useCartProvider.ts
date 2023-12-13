@@ -117,15 +117,47 @@ export function useSetCartProvider() {
     }
   ])
 
+  const setMealCount = (mealId: number, offset: number) => {
+    const restaurantThatHasMeal = cartInfo.find(
+      restaurant => restaurant.meals.find(meal => meal.mealId === mealId)
+    )
+
+    if (restaurantThatHasMeal === undefined) {
+      throw new Error("setMealCount() is called with invalid mealId.")
+    }
+
+    const meal = restaurantThatHasMeal.meals.find(meal => meal.mealId === mealId)
+
+    if (meal === undefined) {
+      throw new Error("setMealCount() is called with invalid mealId.")
+    }
+
+    const newCount = meal.count + offset
+
+    if (newCount < 1) {
+      // remove meal from cart
+      restaurantThatHasMeal.meals = restaurantThatHasMeal.meals.filter(meal => meal.mealId !== mealId)
+      return
+    }
+
+    meal.count = newCount
+  }
+
   provide(key, {
     data: cartInfo,
+    methods: {
+      setMealCount
+    }
   });
 }
 
 export default function useGetCartProvider() {
 
   const data = inject<{
-    data: ResaurantMeals[]
+    data: ResaurantMeals[],
+    methods: {
+      setMealCount: (mealId: number, newCount: number) => void
+    }
   }>(key);
 
   if (data === undefined) {
