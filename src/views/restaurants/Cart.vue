@@ -14,7 +14,11 @@ const cartData = useGetCartProvider();
       <div class="py-4">
         <h2>你的餐點</h2>
       </div>
-      <div v-for="(restaurant) in cartData.data" :key="restaurant.restaurantId">
+      <div 
+        :class="['py-4', 'border-b', 'border-gray-300']"
+        v-for="(restaurant) in cartData.data"
+        :key="restaurant.restaurantId"
+      >
         <span class="text-lg font-bold">{{ restaurant.restaurantName }}</span>
         <ul class="w-full">
           <MealInOrderCard 
