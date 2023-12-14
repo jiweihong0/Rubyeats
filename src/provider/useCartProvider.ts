@@ -143,10 +143,19 @@ export function useSetCartProvider() {
     meal.count = newCount
   }
 
+  const getTotalPrice = () => {
+    return cartInfo.reduce((sum, restaurant) => {
+      return sum + restaurant.meals.reduce((sum, meal) => {
+        return sum + meal.mealPrice * meal.count
+      }, 0)
+    }, 0)
+  }
+
   provide(key, {
     data: cartInfo,
     methods: {
-      setMealCount
+      setMealCount,
+      getTotalPrice
     }
   });
 }
@@ -157,6 +166,7 @@ export default function useGetCartProvider() {
     data: ResaurantMeals[],
     methods: {
       setMealCount: (mealId: number, newCount: number) => void
+      getTotalPrice: () => number
     }
   }>(key);
 

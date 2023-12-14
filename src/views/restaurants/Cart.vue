@@ -28,6 +28,14 @@ const cartData = useGetCartProvider();
           />
         </ul>
       </div>
-
+      <div class="p-4 bg-gray-200">
+        <div class="flex justify-between">
+          <span class="text-lg font-bold">總金額</span>
+          <span class="text-lg font-bold">NT$ {{ cartData.methods.getTotalPrice() }}</span>
+        </div>
+        <div>
+          <button class="w-full px-4 py-2 text-white bg-gray-500 rounded-md">送出訂單</button>
+        </div>
+      </div>
     </Layout>
 </template>
