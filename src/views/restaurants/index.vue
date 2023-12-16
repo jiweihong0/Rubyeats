@@ -1,7 +1,8 @@
 <template>
     <Layout>
-        <div class="w-1/3">
+        <div class="flex justify-between w-full">
           <a-input placeholder="餐廳名稱" />
+            <a-button type="link" href="/recommand-setting">設定推薦</a-button>
         </div>
         <div class="flex flex-col gap-y-4">
           <RestaurantList title="推薦專區" :restaurants="restaurants" />

@@ -8,7 +8,11 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     AButton: typeof import('ant-design-vue/es')['Button']
+    ACheckbox: typeof import('ant-design-vue/es')['Checkbox']
+    ACheckboxGroup: typeof import('ant-design-vue/es')['CheckboxGroup']
     AInput: typeof import('ant-design-vue/es')['Input']
+    ARadio: typeof import('ant-design-vue/es')['Radio']
+    ARadioGroup: typeof import('ant-design-vue/es')['RadioGroup']
     ATag: typeof import('ant-design-vue/es')['Tag']
     ATextarea: typeof import('ant-design-vue/es')['Textarea']
     AUpload: typeof import('ant-design-vue/es')['Upload']
@@ -22,6 +26,7 @@ declare module 'vue' {
     MealsEditForm: typeof import('./src/components/form/MealsEditForm.vue')['default']
     OrderCard: typeof import('./src/components/card/orderCard.vue')['default']
     OrderForm: typeof import('./src/components/form/OrderForm.vue')['default']
+    RecommandCard: typeof import('./src/components/card/RecommandCard.vue')['default']
     RestaurantAndMealCard: typeof import('./src/components/card/restaurantAndMealCard.vue')['default']
     RestaurantEditForm: typeof import('./src/components/form/RestaurantEditForm.vue')['default']
     RestaurantGrid: typeof import('./src/components/list/restaurantGrid.vue')['default']

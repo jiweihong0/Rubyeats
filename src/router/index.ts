@@ -10,6 +10,7 @@ import OrderPage from "../views/chief/OrderPage.vue";
 import MealOrderPage from "../views/restaurants/MealOrderPage.vue";
 import ClientOrdersPage from "../views/restaurants/ClientOrdersPage.vue";
 import CartPage from "../views/restaurants/Cart.vue";
+import RecommandSettingPage from "../views/RecommandSetting.vue";
 
 const routes = [
     {
@@ -31,6 +32,11 @@ const routes = [
         path: "/Userlogin",
         name: "Userlogin",
         component: UserloginPage,
+    },
+    {
+        path: "/recommand-setting",
+        name: "RecommandSetting",
+        component: RecommandSettingPage,
     },
     {
         path: "/vendor/restaurant/edit/:id",
