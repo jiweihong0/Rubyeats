@@ -93,7 +93,7 @@ const closeModal = () => {
                 <h2 class="ml-10 text-4xl">睡相茶弄</h2>
                 <h2 class="mt-3 ml-10">台北市燕巢區湳仔路32號</h2>
                 <div>
-                    <img src="" alt="img">
+                    <img src="https://picsum.photos/200/300?random=1" alt="img">
                 </div>
             </div>
             <div>

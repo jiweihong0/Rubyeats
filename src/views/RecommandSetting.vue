@@ -72,6 +72,7 @@
           <a-checkbox value="日式料理">日式料理</a-checkbox>
           <a-checkbox value="印度料理">印度料理</a-checkbox>
           <a-checkbox value="韓式料理">韓式料理</a-checkbox>
+          <a-checkbox value="法式料理">法式料理</a-checkbox>
         </a-checkbox-group>
       </RecommandCard>
 
@@ -91,8 +92,10 @@
 <script lang="ts" setup>
 import { ref } from "vue";
 import RecommandCard from "../components/card/RecommandCard.vue";
-import getRecommandation from "../utils/getRecommandation"
-  
+import { setRecommandation } from "../hooks/useRecommandation";
+import { useRouter } from "vue-router";
+
+  const router = useRouter();
 
   const foodType = ref<string[]>([]);
   const spicyLevel = ref<string>("1");
@@ -102,18 +105,18 @@ import getRecommandation from "../utils/getRecommandation"
   const internationalCookingStyle = ref<string[]>([]);
 
   const handleStartRecommand = () => {
-    console.log({
-      foodType: foodType.value,
-      spicyLevel: spicyLevel.value,
-      nutritions: nutritions.value,
-      cookingStyle: cookingStyle.value,
-      atmosphere: atmosphere.value,
-      internationalCookingStyle: internationalCookingStyle.value,
-    });
+    const tags = [
+      ...foodType.value,
+      ...nutritions.value,
+      ...cookingStyle.value,
+      ...atmosphere.value,
+      ...internationalCookingStyle.value,
+      spicyLevel.value
+    ];
 
-    const recommandation = getRecommandation();
-    console.log(recommandation);
-    
+    setRecommandation(tags);
+
+    router.push("/restaurants");
   };
   
 </script>
