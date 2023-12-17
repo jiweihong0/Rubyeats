@@ -9,21 +9,25 @@ const handleButton = () => {
 </script>
 <template>
     <div class="flex flex-col items-center w-screen h-ful">
-        <div class=" w-full max-w-3xl">
+        <div class="w-full max-w-3xl ">
+          
             <ChiefHeader/>
-            <div>
-                我的訂單
+
+            <div class="py-4">
+              <h2 class="text-2xl font-bold">我的訂單</h2>
+              <OrderCard/>
             </div>
-            <OrderCard/>
-            <div>
-                正在處理的訂單
+
+            <div class="py-4">
+              <h2 class="text-2xl font-bold">正在處理的訂單</h2>
+              <OrderCard :handleButton="handleButton"/>
             </div>
-            <OrderCard :handleButton="handleButton"/>
-            <div>
-                
-                過往訂單
+
+            <div class="py-4">
+              <h2 class="text-2xl font-bold">過往訂單</h2>
+              <OrderCard />
             </div>
-            <OrderCard/>
+            
         </div>
     </div>
 </template>

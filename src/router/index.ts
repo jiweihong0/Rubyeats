@@ -9,7 +9,6 @@ import RestaurantsPage from "../views/restaurants/index.vue";
 import OrderPage from "../views/chief/OrderPage.vue";
 import MealOrderPage from "../views/restaurants/MealOrderPage.vue";
 import ClientOrdersPage from "../views/restaurants/ClientOrdersPage.vue";
-import CartPage from "../views/restaurants/Cart.vue";
 import RecommandSettingPage from "../views/RecommandSetting.vue";
 
 const routes = [
