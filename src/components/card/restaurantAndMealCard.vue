@@ -1,6 +1,6 @@
 <template>
   <a :href="redirect_url" class="flex flex-col border rounded-lg cursor-pointer">
-    <img class="aspect-[4/3] min-w-[200px] object-fill rounded-t-lg" :src="$props.img" />
+    <img class="aspect-[4/3] min-w-[200px] object-fill rounded-t-lg" :src="props.img" />
     <div class="p-4">
       <div class="flex justify-between">
         <h3>{{ props.title }}</h3>

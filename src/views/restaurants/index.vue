@@ -56,10 +56,10 @@ watchEffect(() => {
       const organizeRestaurants = newRecommandRestaurants.map((restaurant) => {
         return {
           id: Math.random(),
-          name: restaurant[0],
-          img: `https://picsum.photos/200/300?random=${Math.floor(Math.random() * 10)}`,
-          price: Math.floor(Math.random() * 1000),
-          description: "餐廳描述",
+          name: restaurant.name,
+          img: restaurant.img,
+          price: restaurant.menu.reduce((acc, cur) => acc + cur.price, 0),
+          description: restaurant.describe
         };
       });
 
@@ -74,16 +74,4 @@ onMounted(() => {
     console.log("Geolocation is not supported by this browser.");
   }
 })
-
-
-
-//const restaurants: Restaurant[] = [
-//  {
-//    id: 1,
-//    name: "餐廳名稱",
-//    img: "https://picsum.photos/200/300?random=1",
-//    price: 100,
-//    description: "餐廳描述",
-//  },
-//];
 </script>
