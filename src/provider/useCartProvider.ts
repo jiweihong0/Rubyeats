@@ -117,6 +117,21 @@ export function useSetCartProvider() {
     }
   ])
 
+  const addMeal = (restaurantId: number, meal: Meal) => {
+    const restaurant = cartInfo.find(restaurant => restaurant.restaurantId === restaurantId)
+
+    if (restaurant === undefined) {
+      cartInfo.push({
+        restaurantId,
+        restaurantName: 'Restaurant ' + restaurantId,
+        meals: [meal]
+      })
+      return
+    }
+
+    restaurant.meals.push(meal)
+  }
+
   const setMealCount = (mealId: number, offset: number) => {
     const restaurantThatHasMeal = cartInfo.find(
       restaurant => restaurant.meals.find(meal => meal.mealId === mealId)
@@ -151,24 +166,38 @@ export function useSetCartProvider() {
     }, 0)
   }
 
-  provide(key, {
+  const getTotalMealTypeCount = () => {
+    return cartInfo.reduce((sum, restaurant) => {
+      return sum + restaurant.meals.length
+    }, 0)
+  }
+
+  const provider: CartProvider = {
     data: cartInfo,
     methods: {
       setMealCount,
-      getTotalPrice
+      getTotalPrice,
+      addMeal,
+      getTotalMealTypeCount
     }
-  });
+  }
+
+  provide(key, provider);
+}
+
+type CartProvider = {
+  data: ResaurantMeals[],
+  methods: {
+    setMealCount: (mealId: number, newCount: number) => void
+    getTotalPrice: () => number
+    addMeal: (restaurantId: number, meal: Meal) => void,
+    getTotalMealTypeCount: () => number
+  }
 }
 
 export default function useGetCartProvider() {
 
-  const data = inject<{
-    data: ResaurantMeals[],
-    methods: {
-      setMealCount: (mealId: number, newCount: number) => void
-      getTotalPrice: () => number
-    }
-  }>(key);
+  const data = inject<CartProvider>(key);
 
   if (data === undefined) {
     throw new Error("useGetCartProvider() is called without provider.");

@@ -1,28 +1,49 @@
 <script setup lang="ts">
-import { defineProps } from 'vue';
+import { defineProps, PropType } from 'vue';
 
-const props = defineProps([
-  "mealData"
-]);
-const mealData = props.mealData;
+type Meal = {
+  meal_id: number;
+  meal_name: string;
+  meal_image: string;
+  meal_price: number;
+  meal_description: string;
+  meal_address: string;
+  meal_hashtags: string[];
+  meal_selections: {
+      id: number;
+      name: string;
+      options: {
+        id: number,
+        name: string,
+        price: number,
+      }[];
+  }[];
+}
+
+const { mealData } = defineProps({
+  mealData: {
+      type: Object as PropType<Meal>,
+      default: null
+  }
+});
 
 </script>
 
 <template>
   <!-- card -->
-  <div class="flex flex-row p-5 border-4 border-inherit rounded-3xl">
-    <div>
-      <div class="flex flex-row">
-        <h2>{{ mealData.meals_name }}</h2>
-        <p>${{ mealData.meals_price }}</p>
+  <div class="flex flex-row p-5 border-4 cursor-pointer border-inherit rounded-3xl">
+    <div class="mr-10">
+      <div class="flex flex-row justify-between">
+        <h2 class="text-xl">{{ mealData.meal_name }}</h2>
+        <p class="text-lg">${{ mealData.meal_price }}</p>
       </div>
-      <p>{{ mealData.meals_description }}</p>
-      <div class="flex flex-row gap-3 mb-2 ml-3">
-        <p v-for="(tag, index) in mealData.meals_hashtags" :key="index" class="bg-graybg">{{ tag }}</p>
+      <p class="text-sm text-gray-500">{{ mealData.meal_description }}</p>
+      <div class="flex flex-row items-end gap-3">
+        <p v-for="(tag, index) in mealData.meal_hashtags" :key="index" class="px-2 py-1 text-sm bg-graybg">{{ tag }}</p>
       </div>
     </div>
     <div>
-      <img src="" alt="no image">
+      <img :src="mealData.meal_image" alt="no image" class="aspect-[4/3] h-full">
     </div>
   </div>
 </template>
