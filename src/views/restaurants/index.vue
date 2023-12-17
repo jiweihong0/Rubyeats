@@ -1,5 +1,6 @@
 <template>
     <Layout>
+        <ClientHeader class="mb-4"/>
         <div class="flex justify-between w-full">
           <a-input placeholder="餐廳名稱" />
             <a-button type="link" href="/recommand-setting">設定推薦</a-button>
@@ -19,6 +20,7 @@ import RestaurantList from "../../components/list/restaurantList.vue";
 import RestaurantGrid from "../../components/list/restaurantGrid.vue";
 import useGetRecommandation from "../../hooks/useRecommandation";
 import getRecommandationRestaurant from "../../utils/getRecommandation"
+import ClientHeader from "../../components/ClientHeader.vue";
 type Restaurant = InstanceType<typeof RestaurantList>["restaurants"][0];
 
 const restaurants = reactive<Restaurant[]>([]);

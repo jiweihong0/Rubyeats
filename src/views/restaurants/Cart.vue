@@ -3,6 +3,7 @@ import Layout from "../../layouts/index.vue"
 import MealInOrderCard from '../../components/card/MealInOrderCard.vue'
 import useGetCartProvider from "../../provider/useCartProvider";
 import { LeftOutlined } from "@ant-design/icons-vue";
+import ClientHeader from "../../components/ClientHeader.vue";
 
 const cartData = useGetCartProvider();
 
@@ -10,6 +11,8 @@ const cartData = useGetCartProvider();
 <template>
     <Layout class="px-8">
       
+      <ClientHeader />
+
       <div class="py-4">
         <a-button
           class="flex items-center text-xl"
