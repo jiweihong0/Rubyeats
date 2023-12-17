@@ -143,7 +143,7 @@ const closeModal = () => {
                 店家設定分類1
             </div>
             <div class="mb-5 ">大家都愛點這些</div>
-            <div class="flex flex-col gap-3">
+            <div class="flex flex-col gap-3 mb-20">
                 <MealsCard v-for="(meal, index) in data" :key="index" :mealData="meal"
                     @click="e => handleShowMealsEditForm(e, index)" />
             </div>
@@ -155,7 +155,7 @@ const closeModal = () => {
                 :restaurant-id=1 />
             </div>
             
-            <div class="fixed bottom-0 flex items-center justify-center w-full h-16 max-w-3xl bg-graybg">
+            <div class="sticky bottom-0 flex items-center justify-center w-full h-16 max-w-3xl bg-graybg">
                 <a
                   class="flex flex-row items-center justify-between w-4/5 p-5 m-2 bg-white cursor-pointer h-4/5 rounded-xl"
                   href="/cart"
