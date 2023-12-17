@@ -1,11 +1,19 @@
 <template>
-  <div>
-    <div class="flex justify-center">
-      <router-link to="/restaurants" class="btn btn-primary">
-        返回
-      </router-link>
-    </div>
-    <div class="flex flex-col w-full h-full gap-10 p-16 bg-orange-200">
+  <Layout>
+    <ClientHeader />
+    <div class="flex flex-col w-full h-full gap-10 px-16 py-2 bg-orange-200">
+
+      <!-- 返回按鈕 -->
+      <div class="flex justify-start">
+        <a-button
+          class="flex items-center p-0 text-xl"
+          type="link"
+          @click="$router.back()"
+        >
+          <LeftOutlined />
+          返回
+        </a-button>
+      </div>
 
       <RecommandCard title="食材種類偏好" describe="您通常喜歡吃哪些類型的食材">
         <a-checkbox-group v-model:value="foodType">
@@ -86,7 +94,7 @@
       </div>
 
     </div>
-  </div>
+  </Layout>
 </template>
 
 <script lang="ts" setup>
@@ -94,6 +102,8 @@ import { ref } from "vue";
 import RecommandCard from "../components/card/RecommandCard.vue";
 import { setRecommandation } from "../hooks/useRecommandation";
 import { useRouter } from "vue-router";
+import { LeftOutlined } from "@ant-design/icons-vue";
+import Layout from "../layouts/index.vue";
 
   const router = useRouter();
 
