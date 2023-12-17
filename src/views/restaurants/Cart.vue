@@ -2,12 +2,25 @@
 import Layout from "../../layouts/index.vue"
 import MealInOrderCard from '../../components/card/MealInOrderCard.vue'
 import useGetCartProvider from "../../provider/useCartProvider";
+import { LeftOutlined } from "@ant-design/icons-vue";
 
 const cartData = useGetCartProvider();
 
 </script>
 <template>
     <Layout class="px-8">
+      
+      <div class="py-4">
+        <a-button
+          class="flex items-center text-xl"
+          type="link"
+          @click="$router.back()"
+        >
+          <LeftOutlined />
+          返回
+        </a-button>
+      </div>
+
       <div class="py-4">
         <h1 class="text-3xl font-bold">購物車</h1>
       </div>
